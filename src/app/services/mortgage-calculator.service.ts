@@ -24,20 +24,20 @@ export class MortgageCalculatorService {
     const termNoOfPayment = term * period;
     const apNoOfPayment = years * period;
 
-    const apPayment = (((rate / period) * loanAmount)  / (1- (Math.pow (1+ (rate / period), (years * -period)))));
+    const apPayment = (((rate / period) * loanAmount) / (1- (Math.pow (1+ (rate / period), (years * -period)))));
     const termPayment = (((rate / period) * loanAmount)  / (1- (Math.pow (1+ (rate / period), (term * -period)))));
 
     const apTotalInterestAmount = apPayment * (years * period) - loanAmount;
     const apTotalCost = loanAmount + apTotalInterestAmount;
 
-    const termTotalInterestAmount = termPayment * (term * period) - loanAmount;
+    const termTotalInterestAmount = termPayment * (term * period) - loanAmount; // TODO: Incorrect logic
     const termTotalCost = apPayment * termNoOfPayment;
 
     this.mortgageSummary$.next(
       [
         { category: "Number of Payments", term: termNoOfPayment, amortizationPeriod: apNoOfPayment },
         { category: "Mortgage Payment", term: apPayment, amortizationPeriod: apPayment },
-        { category: "Principal Payments", term: NaN, amortizationPeriod: loanAmount },
+        { category: "Principal Payments", term: NaN, amortizationPeriod: apTotalCost - apTotalInterestAmount },
         { category: "Interest Payments", term: NaN, amortizationPeriod: apTotalInterestAmount },
         { category: "Total Cost", term: termTotalCost, amortizationPeriod: apTotalCost },
       ]
