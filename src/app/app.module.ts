@@ -39,12 +39,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MortgageCalculatorFormComponent } from './mortgage-calculator-form/mortgage-calculator-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MortgageCalculatorSummaryComponent } from './mortgage-calculator-summary/mortgage-calculator-summary.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
-    MortgageCalculatorFormComponent
-  ],
+    MortgageCalculatorFormComponent,
+      MortgageCalculatorSummaryComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
