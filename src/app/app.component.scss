@@ -1,4 +1,7 @@
 .wrapper {
   display: flex;
   justify-content: space-around;
+  .summary-wrapper {
+    width: 45rem;
+  }
 }

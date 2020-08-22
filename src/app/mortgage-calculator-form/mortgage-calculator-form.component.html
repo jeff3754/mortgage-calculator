@@ -5,6 +5,7 @@
       <mat-form-field appearance="outline">
         <mat-label>Mortgage Amount:</mat-label>
         <input matInput placeholder="$100,000.00" required type="number" formControlName="mortgageAmount">
+        <mat-icon matPrefix>attach_money</mat-icon>
         <mat-hint>The amount you</mat-hint>
       </mat-form-field>
     </p>
@@ -12,6 +13,7 @@
       <mat-form-field appearance="outline">
         <mat-label>Interest Rate:</mat-label>
         <input matInput placeholder="5.00%" type="number" required formControlName="interestRate">
+        <mat-icon [inline]="true" matSuffix>%</mat-icon>
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
     </p>

@@ -2,17 +2,12 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MortgageCalculatorService } from '../services/mortgage-calculator.service';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { MortgageSummary } from "../models/calculation-summary.model";
 
-export interface PeriodicElement {
-  category: string;
-  term: string;
-  amortizationPeriod: number;
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { category: "1", term: 'Hydrogen', amortizationPeriod: 1.0079 },
-  { category: "2", term: 'Helium', amortizationPeriod: 4.0026 },
-  { category: "3", term: 'Lithium', amortizationPeriod: 6.941 },
+const ELEMENT_DATA: MortgageSummary[] = [
+  { category: "1", term: 1, amortizationPeriod: 1.0079 },
+  { category: "2", term: 1, amortizationPeriod: 4.0026 },
+  { category: "3", term: 1, amortizationPeriod: 6.941 },
 ];
 
 @Component({
