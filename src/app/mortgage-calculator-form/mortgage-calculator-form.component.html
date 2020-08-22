@@ -1,0 +1,57 @@
+<h1>Payment Plan</h1>
+<div>
+  <form [formGroup]="inputGroup" (ngSubmit)="onSubmit()">
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Mortgage Amount:</mat-label>
+        <input matInput placeholder="$100,000.00" required type="number" formControlName="mortgageAmount">
+        <mat-icon matPrefix>attach_money</mat-icon>
+        <mat-hint>The amount you</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Interest Rate:</mat-label>
+        <input matInput placeholder="5.00%" type="number" required formControlName="interestRate">
+        <mat-icon [inline]="true" matSuffix>%</mat-icon>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Amortization Period:</mat-label>
+        <mat-select formControlName="amortization" required>
+          <mat-option *ngFor="let period of amortisationPeriods" [value]="period">
+            {{period.description}}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Amortization Period</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Payment Frequency:</mat-label>
+        <mat-select formControlName="paymentFrequency" required>
+          <mat-option *ngFor="let frequency of paymentFrequencies" [value]="frequency">
+            {{frequency.description}}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Payment Frequency</mat-hint>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Term:</mat-label>
+        <mat-select formControlName="term" required>
+          <mat-option *ngFor="let term of terms" [value]="term">
+            {{term.description}}
+          </mat-option>
+        </mat-select>
+        <mat-hint>Term</mat-hint>
+      </mat-form-field>
+    </p>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!inputGroup.valid">Calculate</button>
+    </div>
+  </form>
+</div>
